@@ -24,7 +24,7 @@ public class SellerControllerV1 {
         this.createSellerUseCase = createSellerUseCase;
     }
 
-    @PostMapping
+    @PostMapping(produces = { "application/hal+json" }, consumes = {"application/hal+json"})
     public ResponseEntity<SellerOutput> create(@RequestBody @Valid SellerRequest sellerRequest) {
         return new ResponseEntity<>(createSellerUseCase.create(sellerRequest), HttpStatus.CREATED);
     }
