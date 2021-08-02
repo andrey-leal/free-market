@@ -1,5 +1,6 @@
 package com.freemarket.seller.sellerapi.business.usecase.impl;
 
+import com.freemarket.seller.sellerapi.api.dto.SellerRequest;
 import com.freemarket.seller.sellerapi.business.dto.SellerInput;
 import com.freemarket.seller.sellerapi.business.dto.SellerOutput;
 import com.freemarket.seller.sellerapi.business.model.Seller;
@@ -30,7 +31,7 @@ class CreateSellerUseCaseImplTest {
 
     @Test
     void givenASellerInput_mustReturnASellerOutput() {
-        SellerInput sellerInput = SellerInput.builder()
+        SellerRequest sellerInput = SellerRequest.builder()
                 .userName("newseller")
                 .storeName("Best Seller")
                 .email("newseller@mail.com")

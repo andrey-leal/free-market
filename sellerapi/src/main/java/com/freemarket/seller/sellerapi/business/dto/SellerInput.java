@@ -1,25 +1,18 @@
 package com.freemarket.seller.sellerapi.business.dto;
 
 import com.freemarket.seller.sellerapi.business.model.SellerPlan;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
 
-@Builder
-@Getter
-@Setter
-public class SellerInput {
+public interface SellerInput {
 
-    private String userName;
+    String getUserName();
 
-    private String storeName;
+    String getStoreName();
 
-    private String password;
+    String getPassword();
 
-    private String email;
+    String getEmail();
 
-    private String phoneNumber;
+    String getPhoneNumber();
 
-    private SellerPlan sellerPlan;
-
+    SellerPlan getSellerPlan();
 }

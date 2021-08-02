@@ -1,5 +1,6 @@
 package com.freemarket.seller.sellerapi.business.model;
 
+import com.freemarket.seller.sellerapi.api.dto.SellerRequest;
 import com.freemarket.seller.sellerapi.business.dto.SellerInput;
 import org.junit.jupiter.api.Test;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -10,7 +11,7 @@ class SellerTest {
 
     @Test
     void givenASellerInput_mustCreateANewSeller() {
-        SellerInput sellerInput = SellerInput.builder()
+        SellerRequest sellerInput = SellerRequest.builder()
                 .userName("newseller")
                 .storeName("Best Seller")
                 .email("newseller@mail.com")
