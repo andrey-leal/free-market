@@ -1,5 +1,6 @@
-package com.freemarket.seller.sellerapi.api;
+package com.freemarket.seller.sellerapi.api.impl;
 
+import com.freemarket.seller.sellerapi.api.SellerControllerV1Api;
 import com.freemarket.seller.sellerapi.api.dto.SellerRequest;
 import com.freemarket.seller.sellerapi.business.dto.SellerOutput;
 import com.freemarket.seller.sellerapi.business.usecase.CreateSellerUseCase;
@@ -16,7 +17,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/v1/sellers")
 @Validated
-public class SellerControllerV1 {
+public class SellerControllerV1 implements SellerControllerV1Api {
 
     private final CreateSellerUseCase createSellerUseCase;
 
@@ -24,8 +25,8 @@ public class SellerControllerV1 {
         this.createSellerUseCase = createSellerUseCase;
     }
 
-    @PostMapping(produces = { "application/hal+json" }, consumes = {"application/hal+json"})
-    public ResponseEntity<SellerOutput> create(@RequestBody @Valid SellerRequest sellerRequest) {
-        return new ResponseEntity<>(createSellerUseCase.create(sellerRequest), HttpStatus.CREATED);
+    @Override
+    public SellerOutput create(@Valid SellerRequest sellerRequest) {
+        return createSellerUseCase.create(sellerRequest);
     }
 }

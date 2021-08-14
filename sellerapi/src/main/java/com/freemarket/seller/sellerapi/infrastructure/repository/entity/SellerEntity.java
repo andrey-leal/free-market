@@ -3,6 +3,7 @@ package com.freemarket.seller.sellerapi.infrastructure.repository.entity;
 import com.freemarket.seller.sellerapi.business.model.Seller;
 import com.freemarket.seller.sellerapi.business.model.SellerPlan;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("Sellers")
@@ -11,6 +12,7 @@ public class SellerEntity {
     @Id
     private String id;
 
+    @Indexed(unique=true)
     private String userName;
 
     private String storeName;
